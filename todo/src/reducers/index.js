@@ -23,7 +23,7 @@ const rootReducer = (state = initialState, action) => {
 		case ADD_TODO:
 			return {
 				...state,
-				todo: action.payload
+				todo: [ ...state.todo, { value: action.payload, completed: false } ]
 			};
 		default:
 			return state;

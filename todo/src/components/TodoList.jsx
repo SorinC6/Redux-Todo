@@ -1,9 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
+import { addTodo } from '../actions';
 
 class TodoList extends React.Component {
-	state = {};
+	state = {
+		inputValue: ''
+	};
+
+	addTodo = () => {
+		this.props.addTodo(this.state.inputValue);
+	};
+
+	handleChange = (e) => {
+		this.setState({
+			inputValue: e.target.value
+		});
+	};
 
 	render() {
 		console.log(this.props.todos);
@@ -13,6 +26,8 @@ class TodoList extends React.Component {
 				{this.props.todos.map((todo, i) => {
 					return <TodoItem key={i} todo={todo} />;
 				})}
+				<input placeholder="todos..." type="text" value={this.state.inputValue} onChange={this.handleChange} />
+				<button onClick={this.addTodo}>Add Todo</button>
 			</React.Fragment>
 		);
 	}
@@ -24,4 +39,4 @@ const mapStatetoProps = (state) => {
 	};
 };
 
-export default connect(mapStatetoProps)(TodoList);
+export default connect(mapStatetoProps, { addTodo })(TodoList);
