@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import TodoItem from './TodoItem';
-import { addTodo } from '../actions';
+import { addTodo, toggleTodo } from '../actions';
 
 class TodoList extends React.Component {
 	state = {
@@ -10,13 +10,18 @@ class TodoList extends React.Component {
 
 	addTodo = () => {
 		this.props.addTodo(this.state.inputValue);
+		this.setState({
+			inputValue: ''
+		});
 	};
 
 	handleChange = (e) => {
 		this.setState({
 			inputValue: e.target.value
 		});
-	};
+   };
+   
+   
 
 	render() {
 		console.log(this.props.todos);
@@ -24,7 +29,7 @@ class TodoList extends React.Component {
 			<React.Fragment>
 				<h1>Redux Todo</h1>
 				{this.props.todos.map((todo, i) => {
-					return <TodoItem key={i} todo={todo} />;
+					return <TodoItem key={i} todo={todo} index={i} toggleTodo={this.props.toggleTodo} />;
 				})}
 				<input placeholder="todos..." type="text" value={this.state.inputValue} onChange={this.handleChange} />
 				<button onClick={this.addTodo}>Add Todo</button>
@@ -39,4 +44,4 @@ const mapStatetoProps = (state) => {
 	};
 };
 
-export default connect(mapStatetoProps, { addTodo })(TodoList);
+export default connect(mapStatetoProps, { addTodo, toggleTodo })(TodoList);

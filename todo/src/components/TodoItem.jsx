@@ -3,7 +3,7 @@ import React from 'react';
 const TodoItem = (props) => {
 	return (
 		<React.Fragment>
-			<p>{props.todo.value}</p>
+			<p onClick={() => props.toggleTodo(props.index)}>{props.todo.value}</p>
 		</React.Fragment>
 	);
 };
