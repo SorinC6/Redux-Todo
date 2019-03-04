@@ -2,3 +2,59 @@
 	text-decoration: line-through;
 	color: red;
 }
+
+.todoStyle {
+	padding: 5px 12px;
+	margin: 10px 0;
+	width: 300px;
+	text-align: center;
+
+	margin: 20px auto;
+	font-size: 30px;
+	border-radius: 4px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+	transition: 0.25s ease-in-out;
+	font-family: 'Amatic SC', cursive;
+}
+
+.todoStyle:hover {
+	transform: scale(1.2);
+	transition: 0.25s ease-in-out;
+}
+
+.todo-list {
+	border-style: double;
+	width: 60%;
+	margin: 0 auto;
+}
+
+.form-style {
+	border-style: double;
+	width: 40%;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.input-style {
+	padding: 10px;
+	font-size: 18px;
+}
+
+button {
+	color: purple;
+	padding: 15px;
+	margin: 7px;
+	border-radius: 10px;
+	font-size: 15px;
+}
+
+.app-title {
+	margin: 0 auto;
+	max-width: 27%;
+	margin-top: 5%;
+	margin-bottom: 5%;
+	color: purple;
+	font-size: 40px;
+	font-family: 'Amatic SC', cursive;
+}
