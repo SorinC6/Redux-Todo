@@ -1,4 +1,4 @@
-import { ADD_TODO, TOGGLE_TODO } from '../actions';
+import { ADD_TODO, TOGGLE_TODO, DELETE_TODO } from '../actions';
 
 const initialState = {
 	todo: [
@@ -18,7 +18,7 @@ const initialState = {
 };
 
 const rootReducer = (state = initialState, action) => {
-	console.log(action);
+	//console.log(action);
 	switch (action.type) {
 		case ADD_TODO:
 			return {
@@ -31,6 +31,11 @@ const rootReducer = (state = initialState, action) => {
 				todo: state.todo.map(
 					(item, index) => (action.payload === index ? { ...item, completed: !item.completed } : item)
 				)
+			};
+		case DELETE_TODO:
+			return {
+				...state,
+				todo: state.todo.filter((item) => !item.completed)
 			};
 		default:
 			return state;
