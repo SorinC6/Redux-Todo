@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import TodoItem from './TodoItem';
 
 class TodoList extends React.Component {
 	state = {};
@@ -9,6 +10,9 @@ class TodoList extends React.Component {
 		return (
 			<React.Fragment>
 				<h1>Redux Todo</h1>
+				{this.props.todos.map((todo, i) => {
+					return <TodoItem key={i} todo={todo} />;
+				})}
 			</React.Fragment>
 		);
 	}
